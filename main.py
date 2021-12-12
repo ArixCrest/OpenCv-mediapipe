@@ -1,12 +1,2 @@
-
-
-def print_hi(name):
-    for i in range(1,50):
-        print(i)
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-
+    print("Nothing here yet")
