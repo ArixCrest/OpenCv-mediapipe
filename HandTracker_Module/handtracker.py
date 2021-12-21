@@ -17,12 +17,12 @@ while True:
     h, w , c = img.shape
     if results.multi_hand_landmarks:
         for handLandmarks in results.multi_hand_landmarks:
-            for id, lm in enumerate(handLandmarks.landmark):
-                #Tracks 8th landmark point and draws a circle there
-                if(id==8):
-                    cx , cy = int(lm.x*w), int(lm.y*h)
-                    print(id, cx, cy)
-                    cv2.circle(img, (cx,cy),15, (255,0,0), cv2.FILLED)
+            # for id, lm in enumerate(handLandmarks.landmark):
+            #     #Tracks 8th landmark point and draws a circle there
+            #     if(id==8):
+            #         cx , cy = int(lm.x*w), int(lm.y*h)
+            #         print(id, cx, cy)
+            #         cv2.circle(img, (cx,cy),15, (255,0,0), cv2.FILLED)
             mpDraw.draw_landmarks(img,handLandmarks,mpHands.HAND_CONNECTIONS)
 
     curTime = time.time()
