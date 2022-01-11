@@ -12,7 +12,6 @@ while True:
     success, img = cap.read()
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results = face.process(imgRGB)
-    print(results)
     if results.detections:
         for id,detection in enumerate(results.detections):
             #mpDraw.draw_detection(img,detection)
@@ -23,8 +22,6 @@ while True:
             cv2.putText(img,f'{int((detection.score[0]*100))}%',
                         (bbox[0], bbox[1]-20), cv2.FONT_HERSHEY_SIMPLEX,
                         3, (0, 255, 0),2)
-
-
 
     curTime = time.time()
     fps = 1 / (curTime - prevTime)
