@@ -2,7 +2,7 @@ import time
 import cv2
 import mediapipe as mp
 class handDetector():
-    #initializing the variables
+    "initializing the variables"
     def __init__(self,mode = False, maxHands = 2, model_complexity = 1,detectionConfidence = 0.5,trackconfidence = 0.5):
         self.mode = mode
         self.maxHands = maxHands
@@ -13,7 +13,7 @@ class handDetector():
         self.mpHands = mp.solutions.hands
         self.hands = self.mpHands.Hands(self.mode,self.maxHands,self.model_complexity,self.detectionconfidence,self.trackconfidence)
         self.mpDraw = mp.solutions.drawing_utils
-    #just drwaing the hands which are being detected
+    """just drawing the hands which are being detected"""
     def find_hands(self,img,draw = True):
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         self.results = self.hands.process(imgRGB)
@@ -22,9 +22,9 @@ class handDetector():
                 if draw:
                     self.mpDraw.draw_landmarks(img, handLandmarks, self.mpHands.HAND_CONNECTIONS)
         return img
-    #will return the positions of landmarks
-    #if no id_no is given it will return a list of list of all the positions
-    #otherwise if id_no is given 0-20 then only that id will be returned
+    """will return the positions of landmarks
+    if no id_no is given it will return a list of list of all the positions
+    otherwise if id_no is given 0-20 then only that id will be returned"""
     def find_position(self,img,handno = 0,id_no = -1,draw = False):
         pos_list = []
         h, w, c = img.shape

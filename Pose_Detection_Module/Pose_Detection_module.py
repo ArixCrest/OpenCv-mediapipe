@@ -21,11 +21,10 @@ class PoseDetection():
                 self.mpDraw.draw_landmarks(img, self.results.pose_landmarks,self.mpPose.POSE_CONNECTIONS)
         return img
 
-    # will return the positions of landmarks
-    # if no id_no is given it will return a list of list of all the positions
-    # otherwise if id_no is given 0-20 then only that id will be returned
+    """ will return the positions of landmarks
+        if no id_no is given it will return a list of list of all the positions
+        otherwise if id_no is given 0-20 then only that id will be returned"""
     def find_position(self,img,id_no = -1,draw = False):
-        h,q,c = img.shape
         pos_list = []
         h, w, c = img.shape
         if self.results.pose_landmarks:
